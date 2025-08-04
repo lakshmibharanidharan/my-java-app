@@ -9,11 +9,11 @@ phases:
       - echo Build started on `date`
       - mvn clean package
       - docker build -t my-java-app:$CODEBUILD_RESOLVED_SOURCE_VERSION .
-      - docker tag my-java-app:$CODEBUILD_RESOLVED_SOURCE_VERSION <your_account_id>.dkr.ecr.<region>.amazonaws.com/my-java-app:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - docker tag my-java-app:$CODEBUILD_RESOLVED_SOURCE_VERSION 223938610529.dkr.ecr.us-east-1.amazonaws.com/my-java-app:$CODEBUILD_RESOLVED_SOURCE_VERSION
   post_build:
     commands:
-      - docker push <your_account_id>.dkr.ecr.<region>.amazonaws.com/my-java-app:$CODEBUILD_RESOLVED_SOURCE_VERSION
-      - printf '[{"name":"my-java-container","imageUri":"%s"}]' <your_account_id>.dkr.ecr.<region>.amazonaws.com/my-java-app:$CODEBUILD_RESOLVED_SOURCE_VERSION > imagedefinitions.json
+      - docker push 223938610529.dkr.ecr.us-east-1.amazonaws.com/my-java-app:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - printf '[{"name":"my-java-container","imageUri":"%s"}]' 223938610529.dkr.ecr.us-east-1.amazonaws.com/my-java-app:$CODEBUILD_RESOLVED_SOURCE_VERSION > imagedefinitions.json
 
 artifacts:
   files:
